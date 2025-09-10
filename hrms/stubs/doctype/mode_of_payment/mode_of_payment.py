@@ -20,7 +20,7 @@ class ModeofPayment(Document):
 			ModeofPaymentAccount,
 		)
 
-		accounts: DF.Table[ModeofPaymentAccount]
+		# accounts: DF.Table[ModeofPaymentAccount]
 		enabled: DF.Check
 		mode_of_payment: DF.Data
 		type: DF.Literal["Cash", "Bank", "General", "Phone"]

@@ -36,7 +36,7 @@ class Project(Document):
 		company: DF.Link
 		copied_from: DF.Data | None
 		cost_center: DF.Link | None
-		customer: DF.Link | None
+		# customer: DF.Link | None
 		daily_time_to_send: DF.Time | None
 		day_to_send: DF.Literal["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 		department: DF.Link | None
@@ -59,7 +59,7 @@ class Project(Document):
 		project_name: DF.Data
 		project_template: DF.Link | None
 		project_type: DF.Link | None
-		sales_order: DF.Link | None
+		# sales_order: DF.Link | None
 		second_email: DF.Time | None
 		status: DF.Literal["Open", "Completed", "Cancelled"]
 		subject: DF.Data | None

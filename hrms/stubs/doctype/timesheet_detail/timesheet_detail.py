@@ -35,7 +35,7 @@ class TimesheetDetail(Document):
 		parenttype: DF.Data
 		project: DF.Link | None
 		project_name: DF.Data | None
-		sales_invoice: DF.Link | None
+		# sales_invoice: DF.Link | None
 		task: DF.Link | None
 		to_time: DF.Datetime | None
 	# end: auto-generated types

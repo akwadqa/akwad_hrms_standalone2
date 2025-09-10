@@ -38,7 +38,7 @@ class Timesheet(Document):
 		base_total_costing_amount: DF.Currency
 		company: DF.Link | None
 		currency: DF.Link | None
-		customer: DF.Link | None
+		# customer: DF.Link | None
 		department: DF.Link | None
 		employee: DF.Link | None
 		employee_name: DF.Data | None
@@ -48,7 +48,7 @@ class Timesheet(Document):
 		note: DF.TextEditor | None
 		parent_project: DF.Link | None
 		per_billed: DF.Percent
-		sales_invoice: DF.Link | None
+		# sales_invoice: DF.Link | None
 		start_date: DF.Date | None
 		status: DF.Literal["Draft", "Submitted", "Billed", "Payslip", "Completed", "Cancelled"]
 		time_logs: DF.Table[TimesheetDetail]

@@ -47,7 +47,7 @@ class Task(NestedSet):
 		is_group: DF.Check
 		is_milestone: DF.Check
 		is_template: DF.Check
-		issue: DF.Link | None
+		# issue: DF.Link | None
 		lft: DF.Int
 		old_parent: DF.Data | None
 		parent_task: DF.Link | None
