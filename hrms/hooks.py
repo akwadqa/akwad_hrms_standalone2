@@ -4,7 +4,7 @@ app_publisher = "Frappe Technologies Pvt. Ltd."
 app_description = "Modern HR and Payroll Software"
 app_email = "contact@frappe.io"
 app_license = "GNU General Public License (v3)"
-required_apps = ["frappe/erpnext"]
+required_apps = ["frappe"]
 source_link = "http://github.com/frappe/hrms"
 
 add_to_apps_screen = [
@@ -49,10 +49,10 @@ doctype_js = {
 	"Company": "public/js/erpnext/company.js",
 	"Department": "public/js/erpnext/department.js",
 	"Timesheet": "public/js/erpnext/timesheet.js",
-	"Payment Entry": "public/js/erpnext/payment_entry.js",
-	"Journal Entry": "public/js/erpnext/journal_entry.js",
-	"Delivery Trip": "public/js/erpnext/delivery_trip.js",
-	"Bank Transaction": "public/js/erpnext/bank_transaction.js",
+	# "Payment Entry": "public/js/erpnext/payment_entry.js",
+	# "Journal Entry": "public/js/erpnext/journal_entry.js",
+	# "Delivery Trip": "public/js/erpnext/delivery_trip.js",
+	# "Bank Transaction": "public/js/erpnext/bank_transaction.js",
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -140,7 +140,7 @@ before_app_uninstall = "hrms.setup.before_app_uninstall"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
-has_upload_permission = {"Employee": "erpnext.setup.doctype.employee.employee.has_upload_permission"}
+has_upload_permission = {"Employee": "hrms.stubs.doctype.employee.employee.has_upload_permission"}
 
 # DocType Class
 # ---------------
@@ -159,8 +159,8 @@ override_doctype_class = {
 
 doc_events = {
 	"User": {
-		"validate": "erpnext.setup.doctype.employee.employee.validate_employee_role",
-		"on_update": "erpnext.setup.doctype.employee.employee.update_user_permissions",
+		"validate": "hrms.stubs.doctype.employee.employee.validate_employee_role",
+		"on_update": "hrms.stubs.doctype.employee.employee.update_user_permissions",
 	},
 	"Company": {
 		"validate": "hrms.overrides.company.validate_default_accounts",
