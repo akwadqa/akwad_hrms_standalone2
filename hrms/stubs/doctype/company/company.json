@@ -859,7 +859,7 @@
  "links": [],
  "modified": "2025-01-09 20:12:25.471544",
  "modified_by": "Administrator",
- "module": "Setup",
+ "module": "Stubs",
  "name": "Company",
  "naming_rule": "By fieldname",
  "nsm_parent_field": "parent_company",

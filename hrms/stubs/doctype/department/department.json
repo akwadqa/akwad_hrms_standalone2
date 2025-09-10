@@ -92,7 +92,7 @@
  "links": [],
  "modified": "2024-06-12 16:10:31.451257",
  "modified_by": "Administrator",
- "module": "Setup",
+ "module": "Stubs",
  "name": "Department",
  "nsm_parent_field": "parent_department",
  "owner": "Administrator",

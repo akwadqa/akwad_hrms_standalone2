@@ -401,7 +401,7 @@
  "max_attachments": 5,
  "modified": "2024-01-08 16:00:41.296203",
  "modified_by": "Administrator",
- "module": "Projects",
+ "module": "Stubs",
  "name": "Task",
  "naming_rule": "Expression (old style)",
  "nsm_parent_field": "parent_task",

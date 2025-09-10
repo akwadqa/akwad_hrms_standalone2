@@ -824,7 +824,7 @@
  "links": [],
  "modified": "2025-07-04 08:29:34.347269",
  "modified_by": "Administrator",
- "module": "Setup",
+ "module": "Stubs",
  "name": "Employee",
  "naming_rule": "By \"Naming Series\" field",
  "nsm_parent_field": "reports_to",

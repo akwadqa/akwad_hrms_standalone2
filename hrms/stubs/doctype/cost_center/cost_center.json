@@ -127,7 +127,7 @@
  "links": [],
  "modified": "2024-04-24 10:55:54.083042",
  "modified_by": "Administrator",
- "module": "Accounts",
+ "module": "Stubs",
  "name": "Cost Center",
  "nsm_parent_field": "parent_cost_center",
  "owner": "Administrator",
