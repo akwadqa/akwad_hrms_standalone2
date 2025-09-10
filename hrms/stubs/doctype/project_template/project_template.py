@@ -17,7 +17,7 @@ class ProjectTemplate(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		from erpnext.projects.doctype.project_template_task.project_template_task import (
+		from hrms.stubs.doctype.project_template_task.project_template_task import (
 			ProjectTemplateTask,
 		)
 

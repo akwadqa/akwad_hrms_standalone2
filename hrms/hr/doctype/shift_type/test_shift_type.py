@@ -13,8 +13,8 @@ from frappe.utils import (
 	now_datetime,
 )
 
-from erpnext.setup.doctype.employee.test_employee import make_employee
-from erpnext.setup.doctype.holiday_list.test_holiday_list import set_holiday_list
+from hrms.stubs.doctype.employee.test_employee import make_employee
+from hrms.stubs.doctype.holiday_list.test_holiday_list import set_holiday_list
 
 from hrms.hr.doctype.leave_application.test_leave_application import get_first_sunday
 from hrms.hr.doctype.shift_type.shift_type import update_last_sync_of_checkin

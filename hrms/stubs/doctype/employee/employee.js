@@ -66,7 +66,7 @@ frappe.ui.form.on("Employee", {
 			frappe.throw(__("Please enter Preferred Contact Email"));
 		}
 		frappe.call({
-			method: "erpnext.setup.doctype.employee.employee.create_user",
+			method: "hrms.stubs.doctype.employee.employee.create_user",
 			args: {
 				employee: frm.doc.name,
 				email: frm.doc.prefered_email,

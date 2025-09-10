@@ -9,7 +9,7 @@ from frappe.utils import add_days, add_months, cstr, flt
 
 import erpnext
 from erpnext.accounts.utils import get_fiscal_year, getdate, nowdate
-from erpnext.setup.doctype.employee.test_employee import make_employee
+from hrms.stubs.doctype.employee.test_employee import make_employee
 
 from hrms.hr.doctype.employee_advance.employee_advance import (
 	create_return_through_additional_salary,

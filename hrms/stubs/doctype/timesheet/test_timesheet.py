@@ -9,8 +9,8 @@ from frappe.tests.utils import change_settings
 from frappe.utils import add_to_date, now_datetime, nowdate
 
 from erpnext.accounts.doctype.sales_invoice.test_sales_invoice import create_sales_invoice
-from erpnext.projects.doctype.timesheet.timesheet import OverlapError, make_sales_invoice
-from erpnext.setup.doctype.employee.test_employee import make_employee
+from hrms.stubs.doctype.timesheet.timesheet import OverlapError, make_sales_invoice
+from hrms.stubs.doctype.employee.test_employee import make_employee
 
 
 class TestTimesheet(unittest.TestCase):

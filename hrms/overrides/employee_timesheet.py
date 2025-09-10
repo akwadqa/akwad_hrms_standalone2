@@ -3,7 +3,7 @@
 
 from frappe.utils.data import flt
 
-from erpnext.projects.doctype.timesheet.timesheet import Timesheet
+from hrms.stubs.doctype.timesheet.timesheet import Timesheet
 
 
 class EmployeeTimesheet(Timesheet):

@@ -29,7 +29,7 @@ frappe.ui.form.on("Project", {
 
 		frm.set_query("user", "users", function () {
 			return {
-				query: "erpnext.projects.doctype.project.project.get_users_for_project",
+				query: "hrms.stubs.doctype.project.project.get_users_for_project",
 			};
 		});
 
@@ -114,7 +114,7 @@ frappe.ui.form.on("Project", {
 					() => {
 						frappe
 							.call(
-								"erpnext.projects.doctype.project.project.create_kanban_board_if_not_exists",
+								"hrms.stubs.doctype.project.project.create_kanban_board_if_not_exists",
 								{
 									project: frm.doc.name,
 								}
@@ -131,7 +131,7 @@ frappe.ui.form.on("Project", {
 
 	update_costing_and_billing: function (frm) {
 		frappe.call({
-			method: "erpnext.projects.doctype.project.project.update_costing_and_billing",
+			method: "hrms.stubs.doctype.project.project.update_costing_and_billing",
 			args: { project: frm.doc.name },
 			freeze: true,
 			freeze_message: __("Updating Costing and Billing fields against this Project..."),
@@ -177,7 +177,7 @@ frappe.ui.form.on("Project", {
 		return new Promise((resolve) => {
 			frappe.prompt("Project Name", (data) => {
 				frappe
-					.xcall("erpnext.projects.doctype.project.project.create_duplicate_project", {
+					.xcall("hrms.stubs.doctype.project.project.create_duplicate_project", {
 						prev_doc: frm.doc,
 						project_name: data.value,
 					})
@@ -193,7 +193,7 @@ frappe.ui.form.on("Project", {
 	set_status: function (frm, status) {
 		frappe.confirm(__("Set Project and all Tasks to status {0}?", [__(status).bold()]), () => {
 			frappe
-				.xcall("erpnext.projects.doctype.project.project.set_project_status", {
+				.xcall("hrms.stubs.doctype.project.project.set_project_status", {
 					project: frm.doc.name,
 					status: status,
 				})

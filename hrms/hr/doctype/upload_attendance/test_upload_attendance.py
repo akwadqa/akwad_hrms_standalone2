@@ -6,7 +6,7 @@ from frappe.tests.utils import FrappeTestCase
 from frappe.utils import getdate
 
 import erpnext
-from erpnext.setup.doctype.employee.test_employee import make_employee
+from hrms.stubs.doctype.employee.test_employee import make_employee
 
 from hrms.hr.doctype.upload_attendance.upload_attendance import get_data
 

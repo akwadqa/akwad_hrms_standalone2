@@ -15,7 +15,7 @@ from frappe.utils.user import is_website_user
 from erpnext import get_default_company
 from erpnext.controllers.queries import get_filters_cond
 from erpnext.controllers.website_list_for_contact import get_customers_suppliers
-from erpnext.setup.doctype.holiday_list.holiday_list import is_holiday
+from hrms.stubs.doctype.holiday_list.holiday_list import is_holiday
 
 
 class Project(Document):
@@ -27,7 +27,7 @@ class Project(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		from erpnext.projects.doctype.project_user.project_user import ProjectUser
+		from hrms.stubs.doctype.project_user.project_user import ProjectUser
 
 		actual_end_date: DF.Date | None
 		actual_start_date: DF.Date | None

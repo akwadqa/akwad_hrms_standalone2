@@ -237,7 +237,7 @@ frappe.ui.form.on("Timesheet", {
 			dialog.hide();
 			return frappe.call({
 				type: "GET",
-				method: "erpnext.projects.doctype.timesheet.timesheet.make_sales_invoice",
+				method: "hrms.stubs.doctype.timesheet.timesheet.make_sales_invoice",
 				args: {
 					source_name: frm.doc.name,
 					item_code: args.item_code,
@@ -327,7 +327,7 @@ frappe.ui.form.on("Timesheet Detail", {
 		if (!frappe.get_doc(cdt, cdn).activity_type) return;
 
 		frappe.call({
-			method: "erpnext.projects.doctype.timesheet.timesheet.get_activity_cost",
+			method: "hrms.stubs.doctype.timesheet.timesheet.get_activity_cost",
 			args: {
 				employee: frm.doc.employee,
 				activity_type: frm.selected_doc.activity_type,
