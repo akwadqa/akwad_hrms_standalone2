@@ -1,4 +1,5 @@
 frappe.provide("hrms");
+frappe.provide("hrms.utils");
 
 $.extend(hrms, {
 	proceed_save_with_reminders_frequency_change: () => {
@@ -79,7 +80,7 @@ $.extend(hrms, {
 		employees,
 		no_data_message = __("No Data"),
 		get_editor = null,
-		events = {},
+		events = {}
 	) => {
 		// section automatically collapses on applying a single filter
 		frm.set_df_property("quick_filters_section", "collapsible", 0);
@@ -119,7 +120,7 @@ $.extend(hrms, {
 				doctype,
 				message.failure,
 				message.success,
-				message.for_processing,
+				message.for_processing
 			);
 
 			// refresh only on complete/partial success
@@ -144,7 +145,7 @@ $.extend(hrms, {
 			message += " " + frappe.utils.comma_and(failure) + "<hr>";
 			message += __(
 				"Check <a href='/app/List/Error Log?reference_doctype={0}'>{1}</a> for more details",
-				[doctype, __("Error Log")],
+				[doctype, __("Error Log")]
 			);
 			title = __("Failure");
 			indicator = "red";
@@ -163,7 +164,7 @@ $.extend(hrms, {
 			]);
 			message += __(
 				"<table class='table table-bordered'><tr><th>{0}</th><th>{1}</th></tr>",
-				[__("Employee"), doctype],
+				[__("Employee"), doctype]
 			);
 			for (const d of success) {
 				message += `<tr><td>${d.employee}</td><td>${d.doc}</td></tr>`;
@@ -212,7 +213,7 @@ $.extend(hrms, {
 					title: __("Geolocation Error"),
 					indicator: "red",
 				});
-			},
+			}
 		);
 	},
 
@@ -243,7 +244,7 @@ $.extend(hrms, {
 				doc.status = "Active";
 				frappe.set_route("Form", "Shift Assignment Tool", doc.name);
 			},
-			__("Shift Tools"),
+			__("Shift Tools")
 		);
 
 		list_view.page.add_inner_button(
@@ -251,7 +252,7 @@ $.extend(hrms, {
 			() => {
 				window.location.href = "/hr/roster";
 			},
-			__("Shift Tools"),
+			__("Shift Tools")
 		);
 	},
 
@@ -265,14 +266,54 @@ $.extend(hrms, {
 				doc.status = "Active";
 				frappe.set_route("Form", "Shift Assignment Tool", doc.name);
 			},
-			__("Shift Tools"),
+			__("Shift Tools")
 		);
 		frm.add_custom_button(
 			__("Roster"),
 			() => {
 				window.location.href = "/hr/roster";
 			},
-			__("Shift Tools"),
+			__("Shift Tools")
 		);
+	},
+});
+
+$.extend(hrms.utils, {
+	copy_value_in_all_rows: function (doc, dt, dn, table_fieldname, fieldname) {
+		var d = locals[dt][dn];
+		if (d[fieldname]) {
+			var cl = doc[table_fieldname] || [];
+			for (var i = 0; i < cl.length; i++) {
+				if (!cl[i][fieldname]) cl[i][fieldname] = d[fieldname];
+			}
+		}
+		refresh_field(table_fieldname);
+	},
+
+	get_tree_options: function (option) {
+		// get valid options for tree based on user permission & locals dict
+		let unscrub_option = frappe.model.unscrub(option);
+		let user_permission = frappe.defaults.get_user_permissions();
+		let options;
+
+		if (user_permission && user_permission[unscrub_option]) {
+			options = user_permission[unscrub_option].map((perm) => perm.doc);
+		} else {
+			options = $.map(locals[`:${unscrub_option}`], function (c) {
+				return c.name;
+			}).sort();
+		}
+
+		// filter unique values, as there may be multiple user permissions for any value
+		return options.filter((value, index, self) => self.indexOf(value) === index);
+	},
+	get_tree_default: function (option) {
+		// set default for a field based on user permission
+		let options = this.get_tree_options(option);
+		if (options.includes(frappe.defaults.get_default(option))) {
+			return frappe.defaults.get_default(option);
+		} else {
+			return options[0];
+		}
 	},
 });

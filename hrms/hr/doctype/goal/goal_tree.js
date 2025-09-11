@@ -6,9 +6,9 @@ frappe.treeview_settings["Goal"] = {
 		{
 			fieldname: "company",
 			fieldtype: "Select",
-			options: erpnext.utils.get_tree_options("company"),
+			options: hrms.utils.get_tree_options("company"),
 			label: __("Company"),
-			default: erpnext.utils.get_tree_default("company"),
+			default: hrms.utils.get_tree_default("company"),
 		},
 		{
 			fieldname: "appraisal_cycle",
@@ -95,7 +95,7 @@ frappe.treeview_settings["Goal"] = {
 			fieldtype: "Section Break",
 			label: __("Appraisal Linking"),
 			description: __(
-				"Link the cycle and tag KRA to your goal to update the appraisal's goal score based on the goal progress",
+				"Link the cycle and tag KRA to your goal to update the appraisal's goal score based on the goal progress"
 			),
 			depends_on: "eval:doc.employee",
 		},
@@ -202,8 +202,8 @@ frappe.treeview_settings["Goal"] = {
 				<span
 					class="pill small pull-right"
 					style="background-color: var(--bg-${status_color[node.data.status]}); color: var(--text-on-${
-						status_color[node.data.status]
-					}); font-weight:500">
+				status_color[node.data.status]
+			}); font-weight:500">
 					${node.data.status}
 				</span>
 			`).insertBefore(node.$ul);
@@ -260,7 +260,7 @@ frappe.treeview_settings["Goal"] = {
 			},
 			click: function (node) {
 				frappe.confirm(__("Mark {0} as Completed?", [node.label.bold()]), () =>
-					update_progress(node, 100),
+					update_progress(node, 100)
 				);
 			},
 		},
@@ -281,7 +281,7 @@ function update_progress(node, progress) {
 			if (!r.exc && r.message) {
 				frappe.treeview_settings["Goal"].treeview.tree.load_children(
 					frappe.treeview_settings["Goal"].treeview.tree.root_node,
-					true,
+					true
 				);
 
 				frappe.show_alert({

@@ -5,9 +5,9 @@ frappe.treeview_settings["Cost Center"] = {
 		{
 			fieldname: "company",
 			fieldtype: "Select",
-			options: erpnext.utils.get_tree_options("company"),
+			options: hrms.utils.get_tree_options("company"),
 			label: __("Company"),
-			default: erpnext.utils.get_tree_default("company"),
+			default: hrms.utils.get_tree_default("company"),
 		},
 	],
 	root_label: "Cost Centers",
@@ -23,7 +23,12 @@ frappe.treeview_settings["Cost Center"] = {
 		},
 	],
 	fields: [
-		{ fieldtype: "Data", fieldname: "cost_center_name", label: __("New Cost Center Name"), reqd: true },
+		{
+			fieldtype: "Data",
+			fieldname: "cost_center_name",
+			label: __("New Cost Center Name"),
+			reqd: true,
+		},
 		{
 			fieldtype: "Check",
 			fieldname: "is_group",
@@ -76,7 +81,9 @@ frappe.treeview_settings["Cost Center"] = {
 		treeview.page.add_inner_button(
 			__("Budget Variance Report"),
 			function () {
-				frappe.set_route("query-report", "Budget Variance Report", { company: get_company() });
+				frappe.set_route("query-report", "Budget Variance Report", {
+					company: get_company(),
+				});
 			},
 			__("Budget")
 		);

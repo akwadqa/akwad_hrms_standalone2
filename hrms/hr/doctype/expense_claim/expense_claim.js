@@ -106,7 +106,7 @@ frappe.ui.form.on("Expense Claim", {
 				function () {
 					frm.events.make_payment_entry(frm);
 				},
-				__("Create"),
+				__("Create")
 			);
 		}
 		frm.trigger("set_form_buttons");
@@ -131,7 +131,7 @@ frappe.ui.form.on("Expense Claim", {
 					};
 					frappe.set_route("query-report", "General Ledger");
 				},
-				__("View"),
+				__("View")
 			);
 		}
 
@@ -162,7 +162,7 @@ frappe.ui.form.on("Expense Claim", {
 						};
 						frappe.set_route("List", entry_doctype);
 					},
-					__("View"),
+					__("View")
 				);
 			}
 		}
@@ -179,11 +179,11 @@ frappe.ui.form.on("Expense Claim", {
 
 		frm.set_value(
 			"total_claimed_amount",
-			flt(total_claimed_amount, precision("total_claimed_amount")),
+			flt(total_claimed_amount, precision("total_claimed_amount"))
 		);
 		frm.set_value(
 			"total_sanctioned_amount",
-			flt(total_sanctioned_amount, precision("total_sanctioned_amount")),
+			flt(total_sanctioned_amount, precision("total_sanctioned_amount"))
 		);
 	},
 
@@ -311,7 +311,7 @@ frappe.ui.form.on("Expense Claim", {
 							var row = frappe.model.add_child(
 								frm.doc,
 								"Expense Claim Advance",
-								"advances",
+								"advances"
 							);
 							row.employee_advance = d.name;
 							row.posting_date = d.posting_date;
@@ -322,7 +322,7 @@ frappe.ui.form.on("Expense Claim", {
 							row.allocated_amount = get_allocation_amount(
 								flt(d.paid_amount),
 								flt(d.claimed_amount),
-								flt(d.return_amount),
+								flt(d.return_amount)
 							);
 						});
 						refresh_field("advances");
@@ -395,7 +395,7 @@ frappe.ui.form.on("Expense Claim Detail", {
 	},
 
 	cost_center: function (frm, cdt, cdn) {
-		erpnext.utils.copy_value_in_all_rows(frm.doc, cdt, cdn, "expenses", "cost_center");
+		hrms.utils.copy_value_in_all_rows(frm.doc, cdt, cdn, "expenses", "cost_center");
 	},
 });
 
@@ -425,7 +425,7 @@ frappe.ui.form.on("Expense Claim Advance", {
 						child.allocated_amount = get_allocation_amount(
 							flt(r.message[0].paid_amount),
 							flt(r.message[0].claimed_amount),
-							flt(r.message[0].return_amount),
+							flt(r.message[0].return_amount)
 						);
 						frm.trigger("calculate_grand_total");
 						refresh_field("advances");
