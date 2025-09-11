@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Timesheet", {
 	setup: function (frm) {
-		frappe.require("/assets/erpnext/js/projects/timer.js");
+		frappe.require("/assets/hrms/js/projects/timer.js");
 
 		frm.ignore_doctypes_on_cancel_all = ["Sales Invoice"];
 
@@ -77,7 +77,11 @@ frappe.ui.form.on("Timesheet", {
 						flag = false;
 					}
 					// Fetch the row for timer where activity is not completed and from_time is before now_time
-					if (flag && row.from_time <= frappe.datetime.now_datetime() && !row.completed) {
+					if (
+						flag &&
+						row.from_time <= frappe.datetime.now_datetime() &&
+						!row.completed
+					) {
 						let timestamp = moment(frappe.datetime.now_datetime()).diff(
 							moment(row.from_time),
 							"seconds"
@@ -161,7 +165,11 @@ frappe.ui.form.on("Timesheet", {
 	set_dynamic_field_label: function (frm) {
 		let base_currency = frappe.defaults.get_global_default("currency");
 		frm.set_currency_labels(
-			["base_total_costing_amount", "base_total_billable_amount", "base_total_billed_amount"],
+			[
+				"base_total_costing_amount",
+				"base_total_billable_amount",
+				"base_total_billed_amount",
+			],
 			base_currency
 		);
 		frm.set_currency_labels(
@@ -170,13 +178,22 @@ frappe.ui.form.on("Timesheet", {
 		);
 
 		frm.toggle_display(
-			["base_total_costing_amount", "base_total_billable_amount", "base_total_billed_amount"],
+			[
+				"base_total_costing_amount",
+				"base_total_billable_amount",
+				"base_total_billed_amount",
+			],
 			frm.doc.currency != base_currency
 		);
 
 		if (frm.doc.time_logs.length > 0) {
 			frm.set_currency_labels(
-				["base_billing_rate", "base_billing_amount", "base_costing_rate", "base_costing_amount"],
+				[
+					"base_billing_rate",
+					"base_billing_amount",
+					"base_costing_rate",
+					"base_costing_amount",
+				],
 				base_currency,
 				"time_logs"
 			);
@@ -188,7 +205,12 @@ frappe.ui.form.on("Timesheet", {
 
 			let time_logs_grid = frm.fields_dict.time_logs.grid;
 			$.each(
-				["base_billing_rate", "base_billing_amount", "base_costing_rate", "base_costing_amount"],
+				[
+					"base_billing_rate",
+					"base_billing_amount",
+					"base_costing_rate",
+					"base_costing_amount",
+				],
 				function (i, d) {
 					if (frappe.meta.get_docfield(time_logs_grid.doctype, d))
 						time_logs_grid.set_column_disp(d, frm.doc.currency != base_currency);
@@ -356,9 +378,11 @@ var calculate_end_time = function (frm, cdt, cdn) {
 	if (child.hours) {
 		d.add(child.hours, "hours");
 		frm._setting_hours = true;
-		frappe.model.set_value(cdt, cdn, "to_time", d.format(frappe.defaultDatetimeFormat)).then(() => {
-			frm._setting_hours = false;
-		});
+		frappe.model
+			.set_value(cdt, cdn, "to_time", d.format(frappe.defaultDatetimeFormat))
+			.then(() => {
+				frm._setting_hours = false;
+			});
 	}
 };
 
@@ -392,7 +416,12 @@ var calculate_billing_costing_amount = function (frm, cdt, cdn) {
 	}
 
 	frappe.model.set_value(cdt, cdn, "base_billing_amount", base_billing_amount);
-	frappe.model.set_value(cdt, cdn, "base_costing_amount", flt(row.base_costing_rate) * flt(row.hours));
+	frappe.model.set_value(
+		cdt,
+		cdn,
+		"base_costing_amount",
+		flt(row.base_costing_rate) * flt(row.hours)
+	);
 	frappe.model.set_value(cdt, cdn, "billing_amount", billing_amount);
 	frappe.model.set_value(cdt, cdn, "costing_amount", flt(row.costing_rate) * flt(row.hours));
 };

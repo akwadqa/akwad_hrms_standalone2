@@ -1,7 +1,7 @@
 // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
-frappe.provide("erpnext.company");
+frappe.provide("hrms.company");
 
 frappe.ui.form.on("Company", {
 	onload: function (frm) {
@@ -80,7 +80,7 @@ frappe.ui.form.on("Company", {
 	},
 
 	refresh: function (frm) {
-		erpnext.company.setup_queries(frm);
+		hrms.company.setup_queries(frm);
 
 		frm.toggle_display("address_html", !frm.is_new());
 
@@ -156,7 +156,7 @@ frappe.ui.form.on("Company", {
 			}
 		}
 
-		erpnext.company.set_chart_of_accounts_options(frm.doc);
+		hrms.company.set_chart_of_accounts_options(frm.doc);
 	},
 
 	make_default_tax_template: function (frm) {
@@ -165,13 +165,15 @@ frappe.ui.form.on("Company", {
 			doc: frm.doc,
 			freeze: true,
 			callback: function () {
-				frappe.msgprint(__("Default tax templates for sales, purchase and items are created."));
+				frappe.msgprint(
+					__("Default tax templates for sales, purchase and items are created.")
+				);
 			},
 		});
 	},
 
 	country: function (frm) {
-		erpnext.company.set_chart_of_accounts_options(frm.doc);
+		hrms.company.set_chart_of_accounts_options(frm.doc);
 	},
 
 	delete_company_transactions: function (frm) {
@@ -222,7 +224,7 @@ frappe.ui.form.on("Company", {
 	},
 });
 
-erpnext.company.set_chart_of_accounts_options = function (doc) {
+hrms.company.set_chart_of_accounts_options = function (doc) {
 	var selected_value = doc.chart_of_accounts;
 	if (doc.country) {
 		return frappe.call({
@@ -242,7 +244,7 @@ erpnext.company.set_chart_of_accounts_options = function (doc) {
 	}
 };
 
-erpnext.company.setup_queries = function (frm) {
+hrms.company.setup_queries = function (frm) {
 	$.each(
 		[
 			["default_bank_account", { account_type: "Bank" }],
@@ -252,7 +254,10 @@ erpnext.company.setup_queries = function (frm) {
 			["default_expense_account", { root_type: "Expense" }],
 			["default_income_account", { root_type: "Income" }],
 			["round_off_account", { root_type: "Expense" }],
-			["round_off_for_opening", { root_type: "Liability", account_type: "Round Off for Opening" }],
+			[
+				"round_off_for_opening",
+				{ root_type: "Liability", account_type: "Round Off for Opening" },
+			],
 			["write_off_account", { root_type: "Expense" }],
 			["default_deferred_expense_account", {}],
 			["default_deferred_revenue_account", {}],
@@ -268,7 +273,10 @@ erpnext.company.setup_queries = function (frm) {
 				"accumulated_depreciation_account",
 				{ root_type: "Asset", account_type: "Accumulated Depreciation" },
 			],
-			["depreciation_expense_account", { root_type: "Expense", account_type: "Depreciation" }],
+			[
+				"depreciation_expense_account",
+				{ root_type: "Expense", account_type: "Depreciation" },
+			],
 			["disposal_account", { report_type: "Profit and Loss" }],
 			["default_inventory_account", { account_type: "Stock" }],
 			["cost_center", {}],
@@ -282,18 +290,24 @@ erpnext.company.setup_queries = function (frm) {
 			["asset_received_but_not_billed", { account_type: "Asset Received But Not Billed" }],
 			["unrealized_profit_loss_account", { root_type: ["in", ["Liability", "Asset"]] }],
 			["default_provisional_account", { root_type: ["in", ["Liability", "Asset"]] }],
-			["default_advance_received_account", { root_type: "Liability", account_type: "Receivable" }],
+			[
+				"default_advance_received_account",
+				{ root_type: "Liability", account_type: "Receivable" },
+			],
 			["default_advance_paid_account", { root_type: "Asset", account_type: "Payable" }],
 		],
 		function (i, v) {
-			erpnext.company.set_custom_query(frm, v);
+			hrms.company.set_custom_query(frm, v);
 		}
 	);
 
 	if (frm.doc.enable_perpetual_inventory) {
 		$.each(
 			[
-				["stock_adjustment_account", { root_type: "Expense", account_type: "Stock Adjustment" }],
+				[
+					"stock_adjustment_account",
+					{ root_type: "Expense", account_type: "Stock Adjustment" },
+				],
 				[
 					"expenses_included_in_valuation",
 					{ root_type: "Expense", account_type: "Expenses Included in Valuation" },
@@ -308,13 +322,13 @@ erpnext.company.setup_queries = function (frm) {
 				],
 			],
 			function (i, v) {
-				erpnext.company.set_custom_query(frm, v);
+				hrms.company.set_custom_query(frm, v);
 			}
 		);
 	}
 };
 
-erpnext.company.set_custom_query = function (frm, v) {
+hrms.company.set_custom_query = function (frm, v) {
 	var filters = {
 		company: frm.doc.name,
 		is_group: 0,

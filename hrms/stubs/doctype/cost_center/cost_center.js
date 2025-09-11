@@ -1,7 +1,7 @@
 // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
-frappe.provide("erpnext.accounts");
+frappe.provide("hrms.accounts");
 
 frappe.ui.form.on("Cost Center", {
 	onload: function (frm) {
@@ -118,7 +118,9 @@ frappe.ui.form.on("Cost Center", {
 	hide_unhide_group_ledger(frm) {
 		let doc = frm.doc;
 		if (doc.is_group == 1) {
-			frm.add_custom_button(__("Convert to Non-Group"), () => frm.events.convert_to_ledger(frm));
+			frm.add_custom_button(__("Convert to Non-Group"), () =>
+				frm.events.convert_to_ledger(frm)
+			);
 		} else if (doc.is_group == 0) {
 			frm.add_custom_button(__("Convert to Group"), () => frm.events.convert_to_group(frm));
 		}

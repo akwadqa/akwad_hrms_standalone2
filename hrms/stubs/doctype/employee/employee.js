@@ -1,8 +1,8 @@
 // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
-frappe.provide("erpnext.setup");
-erpnext.setup.EmployeeController = class EmployeeController extends frappe.ui.form.Controller {
+frappe.provide("hrms.setup");
+hrms.setup.EmployeeController = class EmployeeController extends frappe.ui.form.Controller {
 	setup() {
 		this.frm.fields_dict.user_id.get_query = function (doc, cdt, cdn) {
 			return {
@@ -16,7 +16,7 @@ erpnext.setup.EmployeeController = class EmployeeController extends frappe.ui.fo
 	}
 
 	refresh() {
-		erpnext.toggle_naming_series();
+		hrms.toggle_naming_series();
 	}
 };
 
@@ -47,7 +47,8 @@ frappe.ui.form.on("Employee", {
 	},
 
 	update_contact: function (frm) {
-		var prefered_email_fieldname = frappe.model.scrub(frm.doc.prefered_contact_email) || "user_id";
+		var prefered_email_fieldname =
+			frappe.model.scrub(frm.doc.prefered_contact_email) || "user_id";
 		frm.set_value("prefered_email", frm.fields_dict[prefered_email_fieldname].value);
 	},
 
@@ -80,7 +81,7 @@ frappe.ui.form.on("Employee", {
 	},
 });
 
-cur_frm.cscript = new erpnext.setup.EmployeeController({
+cur_frm.cscript = new hrms.setup.EmployeeController({
 	frm: cur_frm,
 });
 
