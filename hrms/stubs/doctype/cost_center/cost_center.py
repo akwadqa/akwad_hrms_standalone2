@@ -102,7 +102,7 @@ class CostCenter(NestedSet):
 
 	def before_rename(self, olddn, newdn, merge=False):
 		# Add company abbr if not provided
-		from erpnext.setup.doctype.company.company import get_name_with_abbr
+		from hrms.stubs.doctype.company.company import get_name_with_abbr
 
 		new_cost_center = get_name_with_abbr(newdn, self.company)
 

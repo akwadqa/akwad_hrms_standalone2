@@ -200,7 +200,7 @@ frappe.ui.form.on("Company", {
 									return;
 								}
 								frappe.call({
-									method: "erpnext.setup.doctype.company.company.create_transaction_deletion_request",
+									method: "hrms.stubs.doctype.company.company.create_transaction_deletion_request",
 									args: {
 										company: data.company_name,
 									},

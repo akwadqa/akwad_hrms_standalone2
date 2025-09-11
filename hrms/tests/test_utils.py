@@ -1,7 +1,7 @@
 import frappe
 from frappe.utils import add_months, get_first_day, get_last_day, getdate, now_datetime
 
-from erpnext.setup.doctype.department.department import get_abbreviated_name
+from hrms.stubs.doctype.department.department import get_abbreviated_name
 from hrms.stubs.doctype.designation.test_designation import create_designation
 from erpnext.setup.utils import enable_all_roles_and_domains
 

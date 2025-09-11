@@ -26,7 +26,7 @@ class Task(NestedSet):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		from erpnext.projects.doctype.task_depends_on.task_depends_on import TaskDependsOn
+		from hrms.stubs.doctype.task_depends_on.task_depends_on import TaskDependsOn
 
 		act_end_date: DF.Date | None
 		act_start_date: DF.Date | None
