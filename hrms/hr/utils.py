@@ -25,7 +25,7 @@ from frappe.utils import (
 )
 
 import erpnext
-from erpnext import get_company_currency
+from hrms import get_company_currency
 from hrms.stubs.doctype.employee.employee import (
 	InactiveEmployeeStatusError,
 	get_holiday_list_for_employee,
