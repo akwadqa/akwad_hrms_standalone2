@@ -232,7 +232,7 @@ def get_reference_details_for_employee(reference_doctype, reference_name, party_
 	total_amount = outstanding_amount = exchange_rate = None
 
 	ref_doc = frappe.get_doc(reference_doctype, reference_name)
-	company_currency = ref_doc.get("company_currency") or erpnext.get_company_currency(ref_doc.company)
+	company_currency = ref_doc.get("company_currency") or hrms.get_company_currency(ref_doc.company)
 
 	total_amount, exchange_rate = get_total_amount_and_exchange_rate(
 		ref_doc, party_account_currency, company_currency

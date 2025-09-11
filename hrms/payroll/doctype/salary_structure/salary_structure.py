@@ -313,7 +313,7 @@ def create_salary_structure_assignment(
 	payroll_payable_account_currency = frappe.db.get_value(
 		"Account", payroll_payable_account, "account_currency"
 	)
-	company_curency = erpnext.get_company_currency(company)
+	company_curency = hrms.get_company_currency(company)
 	if payroll_payable_account_currency != currency and payroll_payable_account_currency != company_curency:
 		frappe.throw(
 			_("Invalid Payroll Payable Account. The account currency must be {0} or {1}").format(

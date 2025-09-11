@@ -559,7 +559,7 @@ class PayrollEntry(Document):
 			currencies = []
 			payable_amount = 0
 			accounting_dimensions = get_accounting_dimensions() or []
-			company_currency = erpnext.get_company_currency(self.company)
+			company_currency = hrms.get_company_currency(self.company)
 
 			payable_amount = self.get_payable_amount_for_earnings_and_deductions(
 				accounts,
@@ -1010,7 +1010,7 @@ class PayrollEntry(Document):
 
 		accounts = []
 		currencies = []
-		company_currency = erpnext.get_company_currency(self.company)
+		company_currency = hrms.get_company_currency(self.company)
 		accounting_dimensions = get_accounting_dimensions() or []
 
 		exchange_rate, amount = self.get_amount_and_exchange_rate_for_journal_entry(

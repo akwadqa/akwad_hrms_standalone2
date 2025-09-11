@@ -18,7 +18,7 @@ class TestUploadAttendance(FrappeTestCase):
 	def setUpClass(cls):
 		super().setUpClass()
 		frappe.db.set_value(
-			"Company", erpnext.get_default_company(), "default_holiday_list", "_Test Holiday List"
+			"Company", hrms.get_default_company(), "default_holiday_list", "_Test Holiday List"
 		)
 
 	def test_date_range(self):

@@ -260,7 +260,7 @@ def make_bank_entry(dt, dn):
 			"reference_type": "Employee Advance",
 			"reference_name": doc.name,
 			"party_type": "Employee",
-			"cost_center": erpnext.get_default_cost_center(doc.company),
+			"cost_center": hrms.get_default_cost_center(doc.company),
 			"party": doc.employee,
 			"is_advance": "Yes",
 		},
@@ -270,7 +270,7 @@ def make_bank_entry(dt, dn):
 		"accounts",
 		{
 			"account": payment_account.account,
-			"cost_center": erpnext.get_default_cost_center(doc.company),
+			"cost_center": hrms.get_default_cost_center(doc.company),
 			"credit_in_account_currency": flt(paying_amount),
 			"account_currency": payment_account.account_currency,
 			"account_type": payment_account.account_type,
@@ -366,7 +366,7 @@ def make_return_entry(
 			"party_type": "Employee",
 			"party": employee,
 			"is_advance": "Yes",
-			"cost_center": erpnext.get_default_cost_center(company),
+			"cost_center": hrms.get_default_cost_center(company),
 		},
 	)
 
@@ -384,7 +384,7 @@ def make_return_entry(
 			"account_currency": bank_cash_account.account_currency,
 			"account_type": bank_cash_account.account_type,
 			"exchange_rate": flt(exchange_rate) if bank_cash_account.account_currency == currency else 1,
-			"cost_center": erpnext.get_default_cost_center(company),
+			"cost_center": hrms.get_default_cost_center(company),
 		},
 	)
 

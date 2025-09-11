@@ -481,7 +481,7 @@ def make_bank_entry(dt, dn):
 			"reference_type": "Expense Claim",
 			"party_type": "Employee",
 			"party": expense_claim.employee,
-			"cost_center": erpnext.get_default_cost_center(expense_claim.company),
+			"cost_center": hrms.get_default_cost_center(expense_claim.company),
 			"reference_name": expense_claim.name,
 		},
 	)
@@ -493,7 +493,7 @@ def make_bank_entry(dt, dn):
 			"credit_in_account_currency": payable_amount,
 			"balance": default_bank_cash_account.balance,
 			"account_currency": default_bank_cash_account.account_currency,
-			"cost_center": erpnext.get_default_cost_center(expense_claim.company),
+			"cost_center": hrms.get_default_cost_center(expense_claim.company),
 			"account_type": default_bank_cash_account.account_type,
 		},
 	)
@@ -504,7 +504,7 @@ def make_bank_entry(dt, dn):
 @frappe.whitelist()
 def get_expense_claim_account_and_cost_center(expense_claim_type, company):
 	data = get_expense_claim_account(expense_claim_type, company)
-	cost_center = erpnext.get_default_cost_center(company)
+	cost_center = hrms.get_default_cost_center(company)
 
 	return {"account": data.get("account"), "cost_center": cost_center}
 

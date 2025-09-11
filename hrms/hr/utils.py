@@ -733,7 +733,7 @@ def validate_loan_repay_from_salary(doc, method=None):
 			frappe.throw(_("Please select a Company"))
 
 		employee_currency = get_employee_currency(doc.applicant)
-		company_currency = erpnext.get_company_currency(doc.company)
+		company_currency = hrms.get_company_currency(doc.company)
 		if employee_currency != company_currency:
 			frappe.throw(
 				_(

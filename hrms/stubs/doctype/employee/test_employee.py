@@ -57,7 +57,7 @@ def make_employee(user, company=None, **kwargs):
 				"doctype": "Employee",
 				"naming_series": "EMP-",
 				"first_name": user,
-				"company": company or erpnext.get_default_company(),
+				"company": company or hrms.get_default_company(),
 				"user_id": user,
 				"date_of_birth": "1990-05-08",
 				"date_of_joining": "2013-01-01",

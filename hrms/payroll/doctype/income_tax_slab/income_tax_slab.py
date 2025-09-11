@@ -11,4 +11,4 @@ import erpnext
 class IncomeTaxSlab(Document):
 	def validate(self):
 		if self.company:
-			self.currency = erpnext.get_company_currency(self.company)
+			self.currency = hrms.get_company_currency(self.company)
