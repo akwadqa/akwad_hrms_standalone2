@@ -29,7 +29,7 @@ frappe.ui.form.on("Leave Encashment", {
 			if (!frm.doc.employee) {
 				frappe.msgprint(__("Please select employee first"));
 			}
-			let company_currency = erpnext.get_currency(frm.doc.company);
+			let company_currency = hrms.get_currency(frm.doc.company);
 			let currencies = [company_currency];
 			if (frm.doc.currency && frm.doc.currency != company_currency) {
 				currencies.push(frm.doc.currency);

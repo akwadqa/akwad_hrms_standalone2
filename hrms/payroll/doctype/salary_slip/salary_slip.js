@@ -99,7 +99,7 @@ frappe.ui.form.on("Salary Slip", {
 	},
 
 	set_exchange_rate: function (frm) {
-		const company_currency = erpnext.get_currency(frm.doc.company);
+		const company_currency = hrms.get_currency(frm.doc.company);
 
 		if (frm.doc.docstatus === 0) {
 			if (frm.doc.currency) {
@@ -142,7 +142,7 @@ frappe.ui.form.on("Salary Slip", {
 	},
 
 	change_form_labels: function (frm) {
-		const company_currency = erpnext.get_currency(frm.doc.company);
+		const company_currency = hrms.get_currency(frm.doc.company);
 
 		frm.set_currency_labels(
 			[

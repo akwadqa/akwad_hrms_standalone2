@@ -2,6 +2,15 @@ frappe.provide("hrms");
 frappe.provide("hrms.utils");
 
 $.extend(hrms, {
+	get_currency: function (company) {
+		if (!company && cur_frm) company = cur_frm.doc.company;
+		if (company)
+			return (
+				frappe.get_doc(":Company", company)?.default_currency ||
+				frappe.boot.sysdefaults.currency
+			);
+		else return frappe.boot.sysdefaults.currency;
+	},
 	proceed_save_with_reminders_frequency_change: () => {
 		frappe.ui.hide_open_dialog();
 		frappe.call({
