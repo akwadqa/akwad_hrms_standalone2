@@ -6,7 +6,7 @@ import frappe
 from frappe import _
 from frappe.utils import flt
 
-import erpnext
+import hrms
 
 salary_slip = frappe.qb.DocType("Salary Slip")
 salary_detail = frappe.qb.DocType("Salary Detail")

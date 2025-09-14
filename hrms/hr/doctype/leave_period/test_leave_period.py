@@ -4,7 +4,7 @@
 import frappe
 from frappe.tests.utils import FrappeTestCase
 
-import erpnext
+import hrms
 
 test_dependencies = ["Employee", "Leave Type", "Leave Policy"]
 

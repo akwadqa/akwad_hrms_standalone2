@@ -6,7 +6,7 @@ import unittest
 import frappe
 import frappe.utils
 
-import erpnext
+import hrms
 from hrms.stubs.doctype.employee.employee import InactiveEmployeeStatusError
 
 test_records = frappe.get_test_records("Employee")

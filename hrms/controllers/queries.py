@@ -14,7 +14,6 @@ from frappe.query_builder.functions import Concat, Locate, Sum
 from frappe.utils import cint, nowdate, today, unique
 from pypika import Order
 
-# import erpnext
 from erpnext.stock.get_item_details import _get_item_tax_template
 
 import hrms

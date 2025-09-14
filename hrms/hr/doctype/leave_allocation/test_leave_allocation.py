@@ -2,7 +2,7 @@ import frappe
 from frappe.tests.utils import FrappeTestCase, change_settings
 from frappe.utils import add_days, add_months, getdate, nowdate
 
-import erpnext
+import hrms
 from hrms.stubs.doctype.employee.test_employee import make_employee
 
 from hrms.hr.doctype.leave_allocation.leave_allocation import (

@@ -5,7 +5,7 @@ import frappe
 from frappe.tests.utils import FrappeTestCase
 from frappe.utils import add_days, add_months, nowdate
 
-import erpnext
+import hrms
 from hrms.stubs.doctype.employee.test_employee import make_employee
 
 from hrms.payroll.doctype.salary_component.test_salary_component import create_salary_component

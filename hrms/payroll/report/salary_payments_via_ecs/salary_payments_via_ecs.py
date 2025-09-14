@@ -5,7 +5,7 @@
 import frappe
 from frappe import _
 
-import erpnext
+import hrms
 
 
 def execute(filters=None):

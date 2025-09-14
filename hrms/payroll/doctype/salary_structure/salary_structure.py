@@ -9,7 +9,7 @@ from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import cint, cstr, flt
 
-import erpnext
+import hrms
 
 from hrms.payroll.utils import sanitize_expression
 

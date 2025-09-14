@@ -26,6 +26,8 @@ from frappe.utils.make_random import get_random
 
 import erpnext
 from erpnext.accounts.utils import get_fiscal_year
+
+import hrms
 from hrms.stubs.doctype.employee.employee import InactiveEmployeeStatusError
 from hrms.stubs.doctype.employee.test_employee import make_employee
 

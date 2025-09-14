@@ -5,7 +5,7 @@ import frappe
 from frappe.tests.utils import FrappeTestCase
 from frappe.utils import add_months, getdate
 
-import erpnext
+import hrms
 from hrms.stubs.doctype.employee.test_employee import make_employee
 
 from hrms.hr.utils import DuplicateDeclarationError

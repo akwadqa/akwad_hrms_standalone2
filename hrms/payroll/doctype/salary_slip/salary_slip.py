@@ -30,6 +30,8 @@ from frappe.utils.background_jobs import enqueue
 
 import erpnext
 from erpnext.accounts.utils import get_fiscal_year
+
+import hrms
 from hrms.stubs.doctype.employee.employee import get_holiday_list_for_employee
 from hrms.utilities.transaction_base import TransactionBase
 
