@@ -23,7 +23,7 @@ $.extend(hrms.queries, {
 	},
 
 	task: function () {
-		return { query: "erpnext.projects.utils.query_task" };
+		return { query: "hrms.projects.utils.query_task" };
 	},
 
 	customer_filter: function (doc) {
