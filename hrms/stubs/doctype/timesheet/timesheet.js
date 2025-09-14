@@ -70,7 +70,7 @@ frappe.ui.form.on("Timesheet", {
 				$.each(frm.doc.time_logs || [], function (i, row) {
 					// Fetch the row for which from_time is not present
 					if (flag && row.activity_type && !row.from_time) {
-						erpnext.timesheet.timer(frm, row);
+						hrms.timesheet.timer(frm, row);
 						row.from_time = frappe.datetime.now_datetime();
 						frm.refresh_fields("time_logs");
 						frm.save();
@@ -86,13 +86,13 @@ frappe.ui.form.on("Timesheet", {
 							moment(row.from_time),
 							"seconds"
 						);
-						erpnext.timesheet.timer(frm, row, timestamp);
+						hrms.timesheet.timer(frm, row, timestamp);
 						flag = false;
 					}
 				});
 				// If no activities found to start a timer, create new
 				if (flag) {
-					erpnext.timesheet.timer(frm);
+					hrms.timesheet.timer(frm);
 				}
 			}).addClass("btn-primary");
 		}
