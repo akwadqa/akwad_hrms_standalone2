@@ -7,7 +7,7 @@ import frappe
 from frappe.tests.utils import FrappeTestCase, change_settings
 from frappe.utils import add_days, add_months, cstr, flt
 
-import erpnext
+import hrms
 from erpnext.accounts.utils import get_fiscal_year, getdate, nowdate
 from hrms.stubs.doctype.employee.test_employee import make_employee
 

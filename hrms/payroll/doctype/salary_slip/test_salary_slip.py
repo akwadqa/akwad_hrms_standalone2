@@ -24,7 +24,7 @@ from frappe.utils import (
 )
 from frappe.utils.make_random import get_random
 
-import erpnext
+import hrms
 from erpnext.accounts.utils import get_fiscal_year
 
 import hrms

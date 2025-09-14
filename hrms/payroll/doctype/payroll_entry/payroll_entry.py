@@ -22,7 +22,7 @@ from frappe.utils import (
 	getdate,
 )
 
-import erpnext
+import hrms
 from erpnext.accounts.doctype.accounting_dimension.accounting_dimension import (
 	get_accounting_dimensions,
 )

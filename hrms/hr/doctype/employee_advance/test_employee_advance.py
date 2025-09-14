@@ -5,7 +5,7 @@ import frappe
 from frappe.tests.utils import FrappeTestCase, change_settings
 from frappe.utils import flt, nowdate
 
-import erpnext
+import hrms
 from erpnext.accounts.doctype.account.test_account import create_account
 from hrms.stubs.doctype.employee.test_employee import make_employee
 
