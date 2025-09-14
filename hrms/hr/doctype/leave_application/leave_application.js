@@ -12,7 +12,7 @@ frappe.ui.form.on("Leave Application", {
 				},
 			};
 		});
-		frm.set_query("employee", erpnext.queries.employee);
+		frm.set_query("employee", hrms.queries.employee);
 	},
 
 	onload: function (frm) {
@@ -72,7 +72,7 @@ frappe.ui.form.on("Leave Application", {
 				frappe.render_template("leave_application_dashboard", {
 					data: leave_details,
 				}),
-				__("Allocated Leaves"),
+				__("Allocated Leaves")
 			);
 			frm.dashboard.show();
 
@@ -303,7 +303,7 @@ frappe.tour["Leave Application"] = [
 		fieldname: "leave_type",
 		title: "Leave Type",
 		description: __(
-			"Select type of leave the employee wants to apply for, like Sick Leave, Privilege Leave, Casual Leave, etc.",
+			"Select type of leave the employee wants to apply for, like Sick Leave, Privilege Leave, Casual Leave, etc."
 		),
 	},
 	{
@@ -325,7 +325,7 @@ frappe.tour["Leave Application"] = [
 		fieldname: "leave_approver",
 		title: "Leave Approver",
 		description: __(
-			"Select your Leave Approver i.e. the person who approves or rejects your leaves.",
+			"Select your Leave Approver i.e. the person who approves or rejects your leaves."
 		),
 	},
 ];
