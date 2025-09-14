@@ -4,7 +4,7 @@
 import frappe
 from frappe.utils import flt, nowdate
 
-import erpnext
+import hrms
 from erpnext.accounts.doctype.payment_entry.payment_entry import (
 	PaymentEntry,
 	get_bank_cash_account,
