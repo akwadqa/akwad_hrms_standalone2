@@ -11,7 +11,7 @@ hrms.setup.EmployeeController = class EmployeeController extends frappe.ui.form.
 			};
 		};
 		this.frm.fields_dict.reports_to.get_query = function (doc, cdt, cdn) {
-			return { query: "erpnext.controllers.queries.employee_query" };
+			return { query: "hrms.controllers.queries.employee_query" };
 		};
 	}
 

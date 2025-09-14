@@ -13,7 +13,7 @@ from frappe.utils import add_days, flt, get_datetime, get_link_to_form, get_time
 from frappe.utils.user import is_website_user
 
 from hrms import get_default_company
-from erpnext.controllers.queries import get_filters_cond
+from hrms.controllers.queries import get_filters_cond
 from erpnext.controllers.website_list_for_contact import get_customers_suppliers
 from hrms.stubs.doctype.holiday_list.holiday_list import is_holiday
 

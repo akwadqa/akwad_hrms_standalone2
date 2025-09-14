@@ -36,7 +36,7 @@ frappe.ui.form.on("Salary Slip", {
 
 		frm.set_query("employee", function () {
 			return {
-				query: "erpnext.controllers.queries.employee_query",
+				query: "hrms.controllers.queries.employee_query",
 			};
 		});
 

@@ -9,7 +9,7 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import add_to_date, flt, get_datetime, getdate, time_diff_in_hours, time_diff_in_seconds
 
-from erpnext.controllers.queries import get_match_cond
+from hrms.controllers.queries import get_match_cond
 from erpnext.setup.utils import get_exchange_rate
 
 
