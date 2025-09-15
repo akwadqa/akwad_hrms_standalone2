@@ -60,3 +60,19 @@ def get_employee_email(employee_id: str) -> str | None:
 		or employee_emails.company_email
 		or employee_emails.personal_email
 	)
+
+def enable_all_roles_and_domains():
+	"""enable all roles and domain for testing"""
+	_enable_all_roles_for_admin()
+
+
+def _enable_all_roles_for_admin():
+	from frappe.desk.page.setup_wizard.setup_wizard import add_all_roles_to
+
+	all_roles = set(frappe.db.get_values("Role", pluck="name"))
+	admin_roles = set(
+		frappe.db.get_values("Has Role", {"parent": "Administrator"}, fieldname="role", pluck="role")
+	)
+
+	if all_roles.difference(admin_roles):
+		add_all_roles_to("Administrator")
